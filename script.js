@@ -9,3 +9,13 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 
 sections.forEach(section => observer.observe(section));
+// Scroll-to-top button behavior
+window.onscroll = function() {
+  const btn = document.getElementById("scrollTopBtn");
+  btn.style.display = window.scrollY > 200 ? "block" : "none";
+};
+
+document.getElementById("scrollTopBtn").onclick = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
